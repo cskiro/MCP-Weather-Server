@@ -1,52 +1,42 @@
 # MCP Weather Server
 
-A robust weather server application built for MCP that provides real-time weather data and forecasts.
+A weather server application built with the Model Context Protocol (MCP) that provides access to real-time weather data and alerts.
 
 ## Overview
 
-MCP Weather Server is a Node.js/TypeScript application that serves as a backend for weather-related applications. It provides APIs for accessing current weather conditions, forecasts, and historical weather data.
+MCP Weather Server is a TypeScript application that serves as a backend for weather-related applications using the MCP SDK. It provides tools for accessing current weather conditions, forecasts, and weather alerts through the National Weather Service (NWS) API.
 
 ## Features
 
-- Real-time weather data retrieval
-- Weather forecasting (hourly, daily, weekly)
-- Historical weather data access
-- Geocoding for location-based queries
-- Customizable alerts and notifications
-- Support for multiple weather data providers
+- **US Weather Forecasts**: Get detailed forecast data for any US location via latitude/longitude
+- **Weather Alerts**: Retrieve active weather alerts for any US state
+- **MCP Integration**: Built as an MCP server for seamless AI assistant integration
+- **Command-line Interface**: Easy to install and run as a CLI tool
 
 ## Architecture
 
-The application follows a modular, layered architecture:
+The application is built using the Model Context Protocol (MCP) framework:
 
-1. **API Layer**: RESTful endpoints for client applications
-2. **Service Layer**: Business logic and data processing
-3. **Data Access Layer**: Integration with weather data providers and caching
-4. **Authentication & Authorization**: Secure API access
+1. **MCP Server Layer**: Handles communication with MCP clients
+2. **Weather Tools**: Implements forecast and alert functionality
+3. **External API Integration**: Connects to the National Weather Service (NWS) API
 
 ### Component Structure
 
-![Component Architecture Diagram](docs/architecture/component-diagram.svg)
+The server includes two primary weather tools:
 
-The diagram above illustrates the main components of the MCP Weather Server:
+- **get-forecast**: Retrieves detailed weather forecasts for a location specified by latitude and longitude
+- **get-alerts**: Obtains active weather alerts for a specified US state
 
-- **Client Applications**: Web, mobile, and IoT devices that consume the weather API
-- **API Gateway**: Handles request routing, validation, rate limiting, and authentication
-- **Core Services**:
-  - Weather Service: Provides current conditions, forecasts, and historical data
-  - Location Service: Handles geocoding and location-based operations
-  - Alert Service: Manages notifications and weather alerts
-- **Data Access Layer**: Abstracts database operations and external API calls
-- **External Services**: Weather API providers, MongoDB for storage, and Redis for caching
+These tools communicate with the National Weather Service API to provide reliable weather data.
 
 ## Tech Stack
 
 - Node.js
 - TypeScript
-- Express.js
-- MongoDB (for data storage)
-- Redis (for caching)
-- Docker (for containerization)
+- MCP SDK (@modelcontextprotocol/sdk)
+- National Weather Service API
+- Zod (for input validation)
 
 ## Getting Started
 
@@ -54,8 +44,6 @@ The diagram above illustrates the main components of the MCP Weather Server:
 
 - Node.js (v18 or higher)
 - npm or yarn
-- MongoDB (optional, for data persistence)
-- Redis (optional, for improved performance)
 
 ### Installation
 
@@ -69,13 +57,52 @@ cd MCP-Weather-Server
 # Install dependencies
 npm install
 
-# Start the development server
-npm run dev
+# Build the project
+npm run build
+
+# Make the CLI executable
+chmod +x build/index.js
+
+# Install globally (optional)
+npm install -g .
 ```
 
-## API Documentation
+### Usage
 
-API documentation will be available at `/api/docs` once the server is running.
+You can use the server in two ways:
+
+1. **Direct invocation**:
+```bash
+weather
+```
+
+2. **Through an MCP-compatible client/assistant**:
+Configure your MCP client to use the weather tool for forecasts and weather alerts.
+
+## API Usage
+
+### Get Weather Forecast
+
+```typescript
+// Example: Get forecast for San Francisco
+{
+  latitude: 37.7749,
+  longitude: -122.4194
+}
+```
+
+### Get Weather Alerts
+
+```typescript
+// Example: Get alerts for California
+{
+  state: "CA"
+}
+```
+
+## Data Sources
+
+This server uses the [National Weather Service API](https://weather.gov/), which provides official weather data for the United States. Due to the limitations of this data source, the application currently only supports US-based locations.
 
 ## Contributing
 
@@ -83,4 +110,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the ISC License - see the LICENSE file for details.
