@@ -1,0 +1,20 @@
+{
+  "name": "mcp-weather-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cskiro/MCP-Weather-Server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cskiro/MCP-Weather-Server/issues"
+  },
+  "homepage": "https://github.com/cskiro/MCP-Weather-Server#readme",
+  "description": ""
+}
