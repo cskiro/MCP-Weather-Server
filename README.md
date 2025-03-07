@@ -24,6 +24,21 @@ The application follows a modular, layered architecture:
 3. **Data Access Layer**: Integration with weather data providers and caching
 4. **Authentication & Authorization**: Secure API access
 
+### Component Structure
+
+![Component Architecture Diagram](docs/architecture/component-diagram.svg)
+
+The diagram above illustrates the main components of the MCP Weather Server:
+
+- **Client Applications**: Web, mobile, and IoT devices that consume the weather API
+- **API Gateway**: Handles request routing, validation, rate limiting, and authentication
+- **Core Services**:
+  - Weather Service: Provides current conditions, forecasts, and historical data
+  - Location Service: Handles geocoding and location-based operations
+  - Alert Service: Manages notifications and weather alerts
+- **Data Access Layer**: Abstracts database operations and external API calls
+- **External Services**: Weather API providers, MongoDB for storage, and Redis for caching
+
 ## Tech Stack
 
 - Node.js
