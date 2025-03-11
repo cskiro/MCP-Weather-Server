@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle">MCP Weather Server Context Diagram</text>
+  
+  <!-- External Systems -->
+  <rect x="600" y="150" width="160" height="100" rx="10" ry="10" fill="#e6f2ff" stroke="#0066cc" stroke-width="2" />
+  <text x="680" y="200" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">National Weather</text>
+  <text x="680" y="220" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Service API</text>
+  
+  <!-- MCP Clients -->
+  <rect x="40" y="150" width="160" height="100" rx="10" ry="10" fill="#fff2e6" stroke="#ff8c00" stroke-width="2" />
+  <text x="120" y="200" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">MCP Clients</text>
+  <text x="120" y="220" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">(AI Assistants)</text>
+  
+  <!-- CLI User -->
+  <rect x="40" y="350" width="160" height="100" rx="10" ry="10" fill="#e6ffe6" stroke="#008000" stroke-width="2" />
+  <text x="120" y="400" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Command Line</text>
+  <text x="120" y="420" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Interface User</text>
+  
+  <!-- Core System -->
+  <rect x="280" y="150" width="240" height="300" rx="10" ry="10" fill="#f0f0f0" stroke="#404040" stroke-width="2" />
+  <text x="400" y="180" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">MCP Weather Server</text>
+  
+  <!-- Internal Components -->
+  <rect x="300" y="200" width="200" height="60" rx="5" ry="5" fill="#d9d9d9" stroke="#404040" stroke-width="1" />
+  <text x="400" y="235" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">MCP Server Layer</text>
+  
+  <rect x="300" y="280" width="200" height="60" rx="5" ry="5" fill="#d9d9d9" stroke="#404040" stroke-width="1" />
+  <text x="400" y="315" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Weather Tools</text>
+  
+  <rect x="310" y="350" width="85" height="40" rx="5" ry="5" fill="#c0e8ff" stroke="#0066cc" stroke-width="1" />
+  <text x="352" y="375" font-family="Arial" font-size="12" text-anchor="middle">get-forecast</text>
+  
+  <rect x="405" y="350" width="85" height="40" rx="5" ry="5" fill="#c0e8ff" stroke="#0066cc" stroke-width="1" />
+  <text x="447" y="375" font-family="Arial" font-size="12" text-anchor="middle">get-alerts</text>
+  
+  <rect x="300" y="400" width="200" height="40" rx="5" ry="5" fill="#d9d9d9" stroke="#404040" stroke-width="1" />
+  <text x="400" y="425" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">I/O Transport (stdio)</text>
+  
+  <!-- Connections -->
+  <!-- MCP Clients to Server -->
+  <line x1="200" y1="200" x2="280" y2="200" stroke="#ff8c00" stroke-width="2" />
+  <polygon points="280,200 270,195 270,205" fill="#ff8c00" />
+  
+  <!-- CLI to Server -->
+  <line x1="200" y1="400" x2="280" y2="400" stroke="#008000" stroke-width="2" />
+  <polygon points="280,400 270,395 270,405" fill="#008000" />
+  
+  <!-- Server to NWS API -->
+  <line x1="520" y1="200" x2="600" y2="200" stroke="#0066cc" stroke-width="2" />
+  <polygon points="600,200 590,195 590,205" fill="#0066cc" />
+  
+  <!-- Connection Labels -->
+  <text x="240" y="190" font-family="Arial" font-size="12" text-anchor="middle">MCP Protocol</text>
+  <text x="240" y="390" font-family="Arial" font-size="12" text-anchor="middle">CLI Commands</text>
+  <text x="560" y="190" font-family="Arial" font-size="12" text-anchor="middle">HTTP/JSON</text>
+  
+  <!-- Legend -->
+  <rect x="550" y="480" width="220" height="100" rx="5" ry="5" fill="white" stroke="#404040" stroke-width="1" />
+  <text x="660" y="500" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">Legend</text>
+  
+  <rect x="560" y="510" width="20" height="15" fill="#fff2e6" stroke="#ff8c00" stroke-width="1" />
+  <text x="590" y="522" font-family="Arial" font-size="12" text-anchor="start">External User/Client</text>
+  
+  <rect x="560" y="530" width="20" height="15" fill="#f0f0f0" stroke="#404040" stroke-width="1" />
+  <text x="590" y="542" font-family="Arial" font-size="12" text-anchor="start">System Boundary</text>
+  
+  <rect x="560" y="550" width="20" height="15" fill="#d9d9d9" stroke="#404040" stroke-width="1" />
+  <text x="590" y="562" font-family="Arial" font-size="12" text-anchor="start">Internal Component</text>
+  
+  <rect x="660" y="530" width="20" height="15" fill="#e6f2ff" stroke="#0066cc" stroke-width="1" />
+  <text x="690" y="542" font-family="Arial" font-size="12" text-anchor="start">External System</text>
+  
+  <rect x="660" y="550" width="20" height="15" fill="#c0e8ff" stroke="#0066cc" stroke-width="1" />
+  <text x="690" y="562" font-family="Arial" font-size="12" text-anchor="start">Tool</text>
+</svg>
